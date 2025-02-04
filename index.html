@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODA ATTENDANCE SYSTEM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #333;
+        }
+        .radio-group {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .radio-group label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ODA ATTENDANCE SYSTEM</h1>
+        <form id="attendanceForm">
+            <div class="radio-group">
+                <label><input type="radio" name="grade" value="Grade 9 only"> Grade 9 only</label>
+                <label><input type="radio" name="grade" value="Grade 10 only"> Grade 10 only</label>
+                <label><input type="radio" name="grade" value="Grade 11 only"> Grade 11 only</label>
+                <label><input type="radio" name="grade" value="Grade 9 and 10"> Grade 9 and 10</label>
+                <label><input type="radio" name="grade" value="Grade 10 and 11"> Grade 10 and 11</label>
+                <label><input type="radio" name="grade" value="Grade 9 and 11"> Grade 9 and 11</label>
+            </div>
+            <button type="button" onclick="saveAndRedirect()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function saveAndRedirect() {
+            const selectedGrade = document.querySelector('input[name="grade"]:checked');
+            
+            if (selectedGrade) {
+                localStorage.setItem("selectedGrade", selectedGrade.value);
+                window.location.href = "import.html";
+            } else {
+                alert("Please select a grade before submitting.");
+            }
+        }
+    </script>
+
+</body>
+</html>
